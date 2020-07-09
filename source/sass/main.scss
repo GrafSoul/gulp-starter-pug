@@ -1,0 +1,72 @@
+/*
+Project Title:
+Project URI:
+Version: 1.0
+Tags:
+Description:
+Author:
+Author URI:
+*/
+
+//
+// ==========================================================================
+// STYLE SASS
+// ==========================================================================
+
+//
+// BASIS
+// ==========================================================================
+@import "./base/configuration.scss";					// Configuration rules
+@import "./base/mixins.scss";							// Mixins rules
+@import "./base/reset.scss";							// Reset rules
+@import "./base/fonts.scss";							// Fonts rules
+@import "./base/basis.scss";							// Basis rules
+@import "./base/grid.scss";							// Grid rules
+@import "./base/sprite.scss";							// Sprite rules
+@import "./base/icons.scss";							// Icon rules
+
+//
+// FRAME LAYOUT
+// ==========================================================================
+@import "./blocks/frame-layout/page-preloader.scss";	// Preloader rules
+@import "./blocks/frame-layout/page-header.scss";		// Header rules
+@import "./blocks/frame-layout/page-content.scss";		// Content rules
+@import "./blocks/frame-layout/page-sidebar.scss";		// Sidebar rules
+@import "./blocks/frame-layout/page-footer.scss";		// Footer rules
+
+//
+// BLOCK MODULES
+// ==========================================================================
+@import "./blocks/block-modules/main-menu.scss";		// Main Menu rules
+@import "./blocks/block-modules/footer-menu.scss";		// Footer Menu rules
+@import "./blocks/block-modules/social-menu.scss";		// Social Menu rules
+@import "./blocks/block-modules/search-header.scss";	// Search Header rules
+@import "./blocks/block-modules/search-page.scss";		// Search Page rules
+@import "./blocks/block-modules/main-gallery.scss";		// Main Gallery rules
+@import "./blocks/block-modules/main-slider.scss";		// Main Slider rules
+@import "./blocks/block-modules/article.scss";		// Article rules
+
+//
+// ADAPTATION
+// ==========================================================================
+/* Screen more than max-width: 769px
+   ========================================================================== */
+@media only screen and (min-width: 769px) {
+@import "./adaptation/769.scss";
+}
+/* Screen min-width: 481px and max-width: 768px
+   ========================================================================== */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+@import "./adaptation/768.scss";
+}
+/* Screen min-width: 241px and max-width: 480px
+   ========================================================================== */
+@media only screen and (min-width: 241px) and (max-width: 480px) {
+@import "./adaptation/480.scss";
+}
+/* Screen max-width: 240px
+   ========================================================================== */
+@media only screen and (max-width: 240px) {
+@import "./adaptation/240.scss";
+}
+// ==========================================================================

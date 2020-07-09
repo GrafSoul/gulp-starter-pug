@@ -1,0 +1,75 @@
+//- Project:
+//- Project URI:
+//- Version: 1.0
+//- Tags:
+//- Description:
+//- Author:
+//- Author URI:
+
+//- =========================================================================
+// Forms
+//- =========================================================================
+
+section
+	h2 Forms. This is the forms of the site.
+	form(action='', method='')
+		fieldset
+
+			legend Forms
+
+			label(for='name') Name
+				input(type='text' name='name' placeholder='Name')
+
+			label(for='email') Email
+				input(type='email' name='email' placeholder='Email')
+
+			label(for='password') Password
+				input(type='password' name='password')
+
+			label(for='addfile') Add file
+				input(type='file' name='addfile')
+
+			label(for='check') Check
+				input(type='checkbox' name='check')
+
+			label(for='checked') Checked
+				input(type='checkbox' name='checked' checked)
+
+			label(for='disabled') Checked Disabled
+				input(type='checkbox' name='disabled' disabled)
+
+			label(for='radio') Radio
+				input(type='radio' name='radio')
+
+			label(for='radiook') Radio Dual
+				input(type='radio' name='radiook')
+				input(type='radio' name='radiook')
+
+			label(for='radioch') Radio Checked
+				input(type='radio' name='radioch' checked)
+
+			label(for='radiodis') Radio Disabled
+				input(type='radio' name='radiodis' disabled)
+
+			label(for='select') Select
+				select(name='select')
+					option(value='1') Item 1
+					option(value='2') Item 2
+					option(value='3') Item 3
+
+			label(for='text') Textarea
+				textarea(rows='10' cols='45' name='text')
+
+			label(for='radiodis') Button
+				button(name='button', value='send')&attributes({'class': 'send'}) Button
+
+			label(for='submit') Submit
+				input(type='submit' name='submit' value='Send')
+
+			label(for='Reset') Reset
+				input(type='reset' name='reset' value='Reset')
+
+			input(type='hidden' name='reset' value='Hidden')
+
+// END Forms
+//- =========================================================================

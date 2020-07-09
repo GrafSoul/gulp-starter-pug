@@ -1,0 +1,46 @@
+// Project Title:
+// Project URI:
+// Version:
+// Tags:
+// Description:
+// Author:
+// Author URI:
+
+// ==========================================================================
+// Configuration Rules
+// ==========================================================================
+
+// Units
+// ==========================================================================
+
+$unit: px;
+
+// Colors
+// ==========================================================================
+
+$color-1: '';
+$color-2: '';
+$color-3: '' ;
+$color-4: '';
+$color-5: '';
+
+$color_accent: '';
+
+$white: #fff;
+$black: #000;
+$grey:  #333333;
+
+// Fonts
+// ==========================================================================
+
+$font: Roboto;
+$font-add: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-all: $font, $font-add ;
+$font-url:'../../fonts/roboto/';
+
+// Grid
+// ==========================================================================
+
+$grid-total-columns: 12; // Number of columns in grid
+$grid-gutter-width: 20; // Space between columns
+$grid-margin-width: 20; // Outer spacing on grid

@@ -1,0 +1,55 @@
+//- Project:
+//- Project URI:
+//- Version: 1.0
+//- Tags:
+//- Description:
+//- Author:
+//- Author URI:
+
+//- =========================================================================
+//- Mixins template
+//- =========================================================================
+
+//- Mixins Meta
+//- =========================================================================
+mixin meta(metaname,metacontent)
+	meta(name=metaname, content=metacontent)
+
+//- Mixins Favicon
+//- =========================================================================
+mixin favicon_png
+	link(rel="icon" type="image/png" href="images/icons/favicon-32x32.png" sizes="32x32")
+	link(rel="icon" type="image/png" href="images/icons/favicon-16x16.png" sizes="16x16")
+
+mixin favicon_ico
+	link(rel='shortcut icon', type='image/x-icon', href='images/icons/favicon.ico')
+
+//- Mixins Favicon Apple
+//- =========================================================================
+mixin favicon_apple
+	link(rel='apple-touch-icon', href='images/icons/apple-touch-icon.png')
+	link(rel='apple-touch-icon', href='images/icons/apple-touch-icon-72x72.png', sizes='72x72')
+	link(rel='apple-touch-icon', href='images/icons/apple-touch-icon-114x114.png', sizes='114x114')
+
+//- Mixins Stylesheet
+//- =========================================================================
+mixin styles(...files)
+	each file in files
+		link(rel='stylesheet', href=file)
+
+//- Mixins Stylesheet
+//- =========================================================================
+mixin scripts(...files)
+	each file in files
+		script(src=file)
+
+//- Mixins Menu with class
+//- =========================================================================
+mixin menuActive(linkone,addclass,linkname)
+	li: a(href=linkone, class=addclass) #{linkname}
+
+//- Mixins Menu
+//- =========================================================================
+mixin menu(...array)
+	each linkPath, linkName in mainmenu
+		li: a(href=linkPath) #{linkName}

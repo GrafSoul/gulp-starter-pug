@@ -1,0 +1,56 @@
+//- Project:
+//- Project URI:
+//- Version: 1.0
+//- Tags:
+//- Description:
+//- Author:
+//- Author URI:
+
+//- =========================================================================
+//- Connection Configuration and Mixins template
+//- =========================================================================
+
+include config
+include mixins
+
+doctype html
+html(lang=LangPage)
+	head
+
+		// CharsetPage
+		//- =========================================================================
+		meta(charset=CharsetPage)
+
+		// Title Page
+		//- =========================================================================
+		title #{TitlePage}
+
+		// Meta Description and Keywords
+		//- =========================================================================
+		+meta('author', AuthorPage)
+		+meta('description', DescriptionPage)
+		+meta('keywords', KeywordsPage)
+
+		// IE Compatible
+		//- =========================================================================
+		meta(http-equiv="X-UA-Compatible" charset="IE=edge")
+
+		// Meta Viewport
+		//- =========================================================================
+		+meta('viewport', ViewportPage)
+
+		// Favicon
+		//- =========================================================================
+		+favicon_png
+		+favicon_ico
+
+		// Favicon Apple
+		//- =========================================================================
+		+favicon_apple
+
+		// Stylesheets
+		//- =========================================================================
+		+styles('css/style.min.css')
+
+	body
+		block template

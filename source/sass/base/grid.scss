@@ -1,0 +1,42 @@
+// Project Title:
+// Project URI:
+// Version:
+// Tags:
+// Description:
+// Author:
+// Author URI:
+
+// ========================================================================================
+// Grid
+// ========================================================================================
+
+@mixin container {
+	@include ml(-$grid-gutter-width);
+	@include pl($grid-margin-width);
+	@include pr($grid-margin-width);}
+	@mixin grid-columns($grid-column-span, $grid-total-columns) {
+	@include w(percentage($grid-column-span/$grid-total-columns));}
+$class-grid-row:	'row';
+$class-grid-column:	'col-';
+$class-push:		'push';
+@mixin generate_grid_classes(){
+	.#{$class-grid-row}{@include container();}
+	[class*="#{$class-grid-column}"] {
+	@include pos(relative);
+	@include  minh(1);
+	@include bs(border-box);
+	@include  pl($grid-gutter-width);
+	@include  w_p(100);
+	@include  fll;}  
+	[class*="#{$class-grid-column}"]:last-child {
+	@include  fll;}}
+@mixin generate_grid_column_classes($class-grid-column){
+	@for $i from 1 through $grid-total-columns{
+	.#{$class-grid-column}#{$i} {
+	@include grid-columns($i, $grid-total-columns);}}}
+
+//
+//On and Off Grid (add or dell - //)
+// ========================================================================================
+// @include generate_grid_classes();
+// @include generate_grid_column_classes('col-');

@@ -1,0 +1,73 @@
+// Project Title:
+// Project URI:
+// Version:
+// Tags:
+// Description:
+// Author:
+// Author URI:
+
+/* ==========================================================================
+   Basis Rules
+   ========================================================================== */
+
+html {
+  height:100%;
+}
+
+body {
+  height:100%;
+  font: normal 1em Roboto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  font-family: Roboto;
+}
+
+h1 {
+  font-size: 1.2em;
+}
+
+h2 {
+  font-size: 1.1em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+h4 {
+  font-size: .9em;
+}
+
+h5 {
+  font-size: .8em;
+}
+
+h6 {
+  font-size: .7em;
+}
+
+p {
+  font: normal 1em Roboto;
+}
+
+a {
+  font: normal 1em Roboto;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ClearFix
+   ========================================================================== */
+
+.clearfix {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

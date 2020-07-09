@@ -1,0 +1,32 @@
+// Project Title:
+// Project URI:
+// Version:
+// Tags:
+// Description:
+// Author:
+// Author URI:
+
+/* ==========================================================================
+   Social Menu Rules
+   ========================================================================== */
+
+.social-menu {
+
+	.social-menu__list {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.social-menu__item {
+		margin: 0 10px;
+
+	}
+
+	.social-menu__link {
+		font-size: 1em;
+		&:hover {
+		}
+	}
+
+}

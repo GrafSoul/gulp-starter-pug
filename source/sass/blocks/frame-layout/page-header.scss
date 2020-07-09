@@ -1,0 +1,43 @@
+// Project Title:
+// Project URI:
+// Version:
+// Tags:
+// Description:
+// Author:
+// Author URI:
+
+/* ==========================================================================
+   Header Rules
+   ========================================================================== */
+
+.page-header {
+	padding: 20px;
+	background-color: #90a4ae;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+
+
+	&__center{
+		max-width: 1200px;
+		margin: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	&__logo{
+		font-size: 1.3em;
+		font-weight: bold;
+		color: $white;
+		text-decoration: none;
+		display: inline-block;
+	}
+
+	&__slogan{
+		font-size: 1em;
+		font-weight: bold;
+		color: $white;
+	}
+}

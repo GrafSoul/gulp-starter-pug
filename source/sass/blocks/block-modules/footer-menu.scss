@@ -1,0 +1,32 @@
+// Project Title:
+// Project URI:
+// Version:
+// Tags:
+// Description:
+// Author:
+// Author URI:
+
+/* ==========================================================================
+   Footer Menu Rules
+   ========================================================================== */
+
+.footer-menu {
+
+	.footer-menu__list {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.footer-menu__item {
+		margin: 0 10px;
+
+	}
+
+	.footer-menu__link {
+		font-size: .8em;
+		&:hover {
+		}
+	}
+
+}

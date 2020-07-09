@@ -1,0 +1,594 @@
+// Project Title:
+// Project URI:
+// Version:
+// Tags:
+// Description:
+// Author:
+// Author URI:
+//
+// ==========================================================================
+// Mixins
+// ==========================================================================
+//
+// Color 
+// ==========================================================================
+@mixin c($c) {color:$c;}
+//
+// Text and Fonts
+// =========================================================================
+@mixin fn($w) {font: normal $w+$unit $font-all;}
+@mixin fb($w) {font: bold $w+$unit $font-all;}
+@mixin fi($w) {font: italic $w+$unit $font-all;}
+@mixin fbi($w) {font: bold italic $w+$unit $font-all;}
+@mixin fnf($w,$font) {font: normal $w+$unit $font, $font-add;}
+@mixin fbf($w,$font) {font: bold $w+$unit $font, $font-add;}
+@mixin fif($w,$font) {font: italic $w+$unit $font, $font-add;}
+@mixin fbif($w,$font) {font: bold italic $w+$unit $font, $font-add;}
+@mixin ff() {font-family: $font-all;}
+@mixin fs($w) {font-size: $w+$unit;}
+@mixin fs_pr($w) {font-size: $w#{$prc};}
+@mixin fw($w) {font-weight: $w;}
+@mixin fit() {font-style: italic;}
+@mixin up() {text-transform: uppercase;}
+@mixin ls() {list-style: none;}
+@mixin lh($h) {line-height: $h+$unit;}
+@mixin ta($a) {text-align: $a;}
+@mixin tdn() {text-decoration: none;}
+@mixin tdu() {text-decoration: underline;}
+@mixin ww() {word-wrap: break-word;}
+@mixin wb() {word-break: break-all;}
+@mixin ws($s) {word-spacing: $s+$unit;}
+@mixin con($c) {content: "#{$c}";}
+//
+// Border
+// =========================================================================
+@mixin b0() {border: 0;}
+@mixin b($w,$c, $s:solid) {border: $w+$unit $s $c;}
+@mixin bt($w,$c, $s:solid) {border-top: $w+$unit $s $c;}
+@mixin br($w,$c, $s:solid) {border-right: $w+$unit $s $c;}
+@mixin bb($w,$c, $s:solid) {border-bottom: $w+$unit $s $c;}
+@mixin bl($w,$c, $s:solid) {border-left: $w+$unit $s $c;}
+@mixin bs($p) {-webkit-box-sizing: $p;-moz-box-sizing: $p; box-sizing: $p;}
+//
+// Width and Height - Fixed
+// =========================================================================
+@mixin wa() {width: auto;}
+@mixin ha() {height: auto;}
+@mixin w($w) {width: $w+$unit;}
+@mixin h($h) {height: $h+$unit;}
+@mixin w0() {width: 0;}
+@mixin h0() {height: 0;}
+//
+// Width and Height - %
+@mixin w_p($w) {width: $w#{$prc};}
+@mixin h_p($h) {height: $h#{$prc};}
+//
+// Width and Height - Max
+@mixin maxw($w) {max-width: $w+$unit;}
+@mixin maxh($h) {max-height: $h+$unit;}
+@mixin maxw_p($w) {max-width: $w#{$prc};}
+@mixin maxh_p($h) {max-height: $h#{$prc};}
+//
+// Width and Height - Mini
+@mixin minw($w) {min-width: $w+$unit;}
+@mixin minh($h) {min-height: $h+$unit;}
+@mixin minw_p($w) {min-width: $w#{$prc};}
+@mixin minh_p($h) {min-height: $h#{$prc};}
+//
+// Margin
+// =========================================================================
+@mixin ma() {margin: auto;}
+@mixin m($t:none,$r:none,$b:none,$l:none){
+$a:'';
+@if $t != none {$a: $a+'#{$t}'+$unit;}
+@if $r != none {$a: $a+' #{$r}'+$unit;}
+@if $b != none {$a: $a+' #{$b}'+$unit;}
+@if $l != none {$a: $a+' #{$l}'+$unit;}
+margin:#{$a};}
+@mixin mt($t) {margin-top: $t+$unit;}
+@mixin mr($r) {margin-right: $r+$unit;}
+@mixin ml($b) {margin-left: $b+$unit;}
+@mixin mb($l) {margin-bottom: $l+$unit;}
+//
+// Margin in %
+@mixin m_p($t:none,$r:none,$b:none,$l:none){
+$a:'';
+@if $t != none {$a: $a+'#{$t}#{$prc}';}
+@if $r != none {$a: $a+' #{$r}#{$prc}';}
+@if $b != none {$a: $a+' #{$b}#{$prc}';}
+@if $l != none {$a: $a+' #{$l}#{$prc}';}
+margin:#{$a};}
+@mixin mt_p($t) {margin-top: $t#{$prc};}
+@mixin mr_p($r) {margin-right: $r#{$prc};}
+@mixin ml_p($b) {margin-left: $b#{$prc};}
+@mixin mb_p($l) {margin-bottom: $l#{$prc};}
+//
+// Padding
+// =========================================================================
+@mixin pa() {padding: auto;}
+@mixin p($t:none,$r:none,$b:none,$l:none){
+$a:'';
+@if $t != none {$a: $a+'#{$t}'+$unit;}
+@if $r != none {$a: $a+' #{$r}'+$unit;}
+@if $b != none {$a: $a+' #{$b}'+$unit;}
+@if $l != none {$a: $a+' #{$l}'+$unit;}
+padding:#{$a};}
+@mixin pt($t) {padding-top: $t+$unit;}
+@mixin pr($r) {padding-right: $r+$unit;}
+@mixin pl($b) {padding-left: $b+$unit;}
+@mixin pb($l) {padding-bottom: $l+$unit;}
+//
+// Padding in %
+@mixin p_p($t:none,$r:none,$b:none,$l:none){
+$a:'';
+@if $t != none {$a: $a+'#{$t}#{$prc}';}
+@if $r != none {$a: $a+' #{$r}#{$prc}';}
+@if $b != none {$a: $a+' #{$b}#{$prc}';}
+@if $l != none {$a: $a+' #{$l}#{$prc}';}
+padding:#{$a};}
+@mixin pt_p($t) {padding-top: $t#{$prc};}
+@mixin pr_p($r) {padding-right: $r#{$prc};}
+@mixin pl_p($b) {padding-left: $b#{$prc};}
+@mixin pb_p($l) {padding-bottom: $l#{$prc};}
+//
+// Type of blocks and alignment
+// =========================================================================
+@mixin db() {display: block ;}
+@mixin dn() {display: none;}
+@mixin dib() {display: inline-block;}
+@mixin fll() {float: left;}
+@mixin flr() {float: right;}
+@mixin fln() {float: none;}
+@mixin vh() {visibility: hidden;}
+@mixin oh() {overflow: hidden;}
+@mixin cb() {clear: both;}
+//
+// Backgrounds and Sprites
+// =========================================================================
+@mixin bg($p,$v,$h,$m) {background: url($p) $v+$unit $h+$unit '#{$m}';}
+@mixin bg_x($p,$v,$h) {background: url($p) $v+$unit $h+$unit repeat-x;}
+@mixin bg_y($p,$v,$h) {background: url($p) $v+$unit $h+$unit repeat-y;}
+@mixin bg_n($p,$v,$h) {background: url($p) $v+$unit $h+$unit no-repeat;}
+@mixin bg_c($c) {background-color: $c;}
+@mixin bg_s($w:none,$h:none) { $a:'';
+@if $w != none {$a: $a+'#{$w}#{$unit}';}
+@if $h != none {$a: $a+' #{$h}#{$unit}';}
+-webkit-background-size: #{$a}; background-size: #{$a};}
+@mixin bg_cl($p) {-webkit-background-clip: $p; background-clip: $p;}
+@mixin bg_or($p) {-webkit-background-origin: $p; background-origin: $p;}
+@mixin bg_p($w,$h) { background-position: $w+$unit $h+$unit;};
+@mixin bg_i($p,$n,$r:round) {
+  -webkit-border-image: url($p) $n $r;
+  -moz-border-image: url($p) $n $r;
+	 -o-border-image: url($p) $n $r;
+	 border-image: url($p) $n $r;}
+@mixin spr($v: 0, $h: 0) {background: $sprite $v+$unit $h+$unit no-repeat;}
+//
+// Position
+// =========================================================================
+@mixin pos($p:static) {position: $p;}
+@mixin pos_trbl($p:static,$t:0,$r:0,$b:0,$l:0) {position: $p; top: $t+$unit; right: $r+$unit; bottom: $b+$unit; left: $l+$unit;}
+@mixin pos_t($p:static,$t:0) {position: $p; top: $t+$unit;}
+@mixin pos_r($p:static,$r:0) {position: $p; right: $r+$unit;}
+@mixin pos_b($p:static,$b:0) {position: $p; bottom: $b+$unit;}
+@mixin pos_l($p:static,$l:0) {position: $p; left: $l+$unit;}
+@mixin pos_tr($p:static,$t:0,$r:0) {position: $p; top: $t+$unit; right: $r+$unit;}
+@mixin pos_rb($p:static,$r:0,$b:0) {position: $p; right: $r+$unit; bottom: $b+$unit;}
+@mixin pos_bl($p:static,$b:0,$l:0) {position: $p; bottom: $b+$unit; left: $l+$unit;}
+@mixin pos_tl($p:static,$t:0,$l:0) {position: $p; top: $t+$unit; left: $l+$unit;}
+@mixin pos_rl($p:static,$r:0,$l:0) {position: $p; right: $r+$unit; left: $l+$unit;}
+@mixin pos_tb($p:static,$t:0,$b:0) {position: $p; top: $t+$unit; bottom: $b+$unit;}
+@mixin pos_trb($p:static,$t:0,$r:0,$b:0) {position: $p; top: $t+$unit; right: $r+$unit; bottom: $b+$unit;}
+@mixin pos_tbl($p:static,$t:0,$b:0,$l:0) {position: $p; top: $t+$unit; bottom: $b+$unit; left: $l+$unit;}
+@mixin pos_rbl($p:static,$r:0,$b:0,$l:0) {position: $p; right: $r+$unit; bottom: $b+$unit; left: $l+$unit;}
+@mixin pos_trl($p:static,$t:0,$r:0,$l:0) {position: $p; top: $t+$unit; right: $r+$unit; left: $l+$unit;}
+@mixin zi($z) {z-index: $z;}
+//
+// Opacity
+// =========================================================================
+@mixin o($o) {opacity: $o/100; 
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity= #{$o})";
+filter: alpha(opacity=$o);}
+//
+// Border Radius
+// =========================================================================
+@mixin r($t:none,$r:none,$b:none,$l:none){
+$a:'';
+@if $t != none {$a: $a+'#{$t}'+$unit;}
+@if $r != none {$a: $a+' #{$r}'+$unit;}
+@if $b != none {$a: $a+' #{$b}'+$unit;}
+@if $l != none {$a: $a+' #{$l}'+$unit;}
+border-radius:#{$a};}
+@mixin r0($t:0, $r:0, $b:0, $l:0) {border-radius: $t $r $b $l;}
+//
+// Box Shadow
+// =========================================================================
+@mixin s_in($h,$v,$b,$s,$r,$g,$a,$o) {
+-webkit-box-shadow: inset $h+$unit $v+$unit $b+$unit $s+$unit rgba($r,$g,$a,$o/100);
+box-shadow: inset $h+$unit $v+$unit $b+$unit $s+$unit rgba($r,$g,$a,$o/100);} 
+@mixin s_out($h,$v,$b,$s,$r,$g,$a,$o) {
+-webkit-box-shadow: $h+$unit $v+$unit $b+$unit $s+$unit rgba($r,$g,$a,$o/100);
+box-shadow: $h+$unit $v+$unit $b+$unit $s+$unit rgba($r,$g,$a,$o/100);} 
+//
+// Text Shadow
+// =========================================================================
+@mixin s_txt($h,$v,$b,$r,$g,$a,$o) {
+text-shadow: $h+$unit $v+$unit $b+$unit rgba($r,$g,$a,$o/100);}
+//
+// Resize
+// =========================================================================
+@mixin rh() {resize: horizontal;}
+@mixin rv() {resize: vertical;}
+@mixin rb() {resize: both;}
+@mixin rn() {resize: none;}
+//
+// Hyphenation
+// =========================================================================
+@mixin hyp() {-moz-hyphens: auto;-webkit-hyphens: auto;-ms-hyphens: auto;hyphens: auto;}
+//
+// Column
+// =========================================================================
+@mixin col($count: 3, $gap: 1em) {
+  -webkit-column-count: $count; -webkit-column-gap: $gap;
+     -moz-column-count: $count;    -moz-column-gap: $gap;
+          column-count: $count;         column-gap: $gap;}
+//
+// Flexbox
+// ==========================================================================
+//display: flex
+@mixin flb(){
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+// flex-direction
+@mixin fld_r(){
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+}
+@mixin fld_rr(){
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: reverse;
+	-webkit-flex-direction: row-reverse;
+	    -ms-flex-direction: row-reverse;
+	        flex-direction: row-reverse;
+}
+@mixin fld_c(){
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+@mixin fld_cr(){
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: reverse;
+	-webkit-flex-direction: column-reverse;
+		-ms-flex-direction: column-reverse;
+			flex-direction: column-reverse;
+}
+//flex-wrap
+@mixin flw_w(){
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+@mixin flw_wr(){
+	-webkit-flex-wrap: wrap-reverse;
+	    -ms-flex-wrap: wrap-reverse;
+	        flex-wrap: wrap-reverse;
+}
+@mixin flw_nw(){
+	-webkit-flex-wrap: nowrap;
+	    -ms-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+}
+// flex-grow
+@mixin flg($n){
+	-webkit-box-flex: $n;
+	-webkit-flex-grow: $n;
+	    -ms-flex-positive: $n;
+	        flex-grow: $n;
+}
+// flex-shrink
+@mixin flsh($n){
+	-webkit-flex-shrink: $n;
+	    -ms-flex-negative: $n;
+	        flex-shrink: $n;
+}
+// flex-basis
+@mixin flbs($n){
+	-webkit-flex-basis: $n;
+	    -ms-flex-preferred-size: $n;
+	        flex-basis: $n;
+}
+//order
+@mixin ord($n){
+	-webkit-box-ordinal-group: $n;
+	-webkit-order: $n;
+	    -ms-flex-order: $n;
+	        order: $n;
+}
+// flex-flow
+@mixin flfw($a:none,$b:none){
+$i:'';
+@if $a != none {$i: '#{$i} #{$a}';}
+@if $b != none {$i: '#{$i} #{$b}';}
+-webkit-flex-flow:$i;
+	-ms-flex-flow:$i;
+		flex-flow:$i;
+}
+// flex
+@mixin flx($a: none, $b: none, $c: none){
+$i:'';
+@if $a != none {$i: '#{$i} #{$a}';}
+@if $b != none {$i: '#{$i} #{$b}';}
+@if $c != none {$i: '#{$i} #{$c}';}
+	-webkit-box-flex:1;
+		-webkit-flex: $i;
+			-ms-flex: $i;
+				flex: $i;
+}
+//justify-content
+@mixin jc_fs(){
+	-webkit-box-pack:start;
+	-webkit-justify-content:flex-start;
+	    -ms-flex-pack:start;
+	        justify-content:flex-start;
+}
+@mixin jc_fe(){
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
+}
+@mixin jc_c(){
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+@mixin jc_sb(){
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+@mixin jc_sb(){
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+}
+// align-items
+@mixin ai_s(){
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch;
+}
+@mixin ai_fs(){
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	    -ms-flex-align: start;
+	        align-items: flex-start;
+}
+@mixin ai_fe(){
+	-webkit-box-align: end;
+	-webkit-align-items: flex-end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+}
+@mixin ai_c(){
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+@mixin ai_b(){
+	-webkit-box-align: baseline;
+	-webkit-align-items: baseline;
+	    -ms-flex-align: baseline;
+	        align-items: baseline;
+}
+// align-self
+@mixin as_s(){
+	-webkit-align-self: stretch;
+	    -ms-flex-item-align: stretch;
+	        align-self: stretch;
+}
+@mixin as_fs(){
+	-webkit-align-self: flex-start;
+	    -ms-flex-item-align: start;
+	        align-self: flex-start;
+}
+@mixin as_fe(){
+	-webkit-align-self: flex-end;
+	    -ms-flex-item-align: end;
+	        align-self: flex-end;
+}
+@mixin as_c(){
+	-webkit-align-self: center;
+	    -ms-flex-item-align: center;
+	        align-self: center;
+}
+@mixin as_b(){
+	-webkit-align-self: baseline;
+		-ms-flex-item-align: baseline;
+	        align-self: baseline;
+}
+//
+// Transition
+// =========================================================================
+@mixin trz($s:none,$t:none,$p:none,$z:none) {
+$a:'';
+@if $s != none {$a: $a+'#{$s}';}
+@if $t != none {$a: $a+' #{$t}';}
+@if $p != none {$a: $a+' #{$p}';}
+@if $z != none {$a: $a+' #{$z}';}
+-webkit-transition:#{$a};-moz-transition:#{$a};-o-transition:#{$a};transition:#{$a};
+}
+//
+// Transform
+// =========================================================================
+//
+// The displacement of the center (transform-origin)
+@mixin trf_o($x:none, $y:none, $z:none) {
+$a:'';
+@if $x != none {$a: $a+'#{$x}'+$p;}
+@if $y != none {$a: $a+' #{$y}'+$p;}
+@if $z != none {$a: $a+' #{$z}'+$p;}
+-ms-transform-origin:#{$a};
+-webkit-transform-origin:#{$a};
+-moz-transform-origin:#{$a};
+-o-transform-origin:#{$a};
+transform-origin:#{$a};}
+//
+// Rotate
+@mixin trf_r($r) {
+-ms-transform: rotate($r+$deg);
+-webkit-transform: rotate($r+$deg);
+-moz-transform: rotate($r+$deg);
+-o-transform: rotate($r+$deg); 
+ transform: rotate($r+$deg);}
+//
+// Rotate X
+@mixin trf_rx($x) {
+-ms-transform: rotateX($x+$deg);
+-webkit-transform: rotateX($x+$deg);
+-moz-transform: rotateX($x+$deg);
+-o-transform: rotateX($x+$deg);
+ transform: rotateX($x+$deg);}
+//
+// Rotate Y
+@mixin trf_ry($y) {
+-ms-transform: rotateY($y+$deg);
+-webkit-transform: rotateY($y+$deg);
+-moz-transform: rotateY($y+$deg);
+-o-transform: rotateY($y+$deg); 
+ transform: rotateY($y+$deg);}
+//
+// Rotate Z
+@mixin trf_rz($z) {
+-ms-transform: rotateZ($z+$deg);
+-webkit-transform: rotateZ($z+$deg);
+-moz-transform: rotateZ($z+$deg);
+-o-transform: rotateZ($z+$deg); 
+ transform: rotateZ($z+$deg);}
+//
+// Translate
+@mixin trf_t($x, $y) {
+-ms-transform: translate($x+$unit, $y+$unit);
+-webkit-transform: translate($x+$unit, $y+$unit);
+-moz-transform: translate($x+$unit, $y+$unit);
+-o-transform: translate($x+$unit, $y+$unit);
+transform: translate($x+$unit, $y+$unit);}
+//
+// Translate X
+@mixin trf_tx($x) {
+-ms-transform: translateX($x+$unit);
+-webkit-transform: translateX($x+$unit);
+-moz-transform: translateX($x+$unit);
+-o-transform: translateX($x+$unit);
+transform: translateX($x+$unit);}
+//
+// Translate Y
+@mixin trf_ty($y) {
+-ms-transform: translateY($y+$unit);
+-webkit-transform: translateY($y+$unit);
+-moz-transform: translateY($y+$unit);
+-o-transform: translateY($y+$unit);
+transform: translateY($y+$unit);}
+//
+// Skew 
+@mixin trf_sw($x, $y) {
+-ms-transform: skew($x+$deg, $y+$deg);
+-webkit-transform: skew($x+$deg, $y+$deg);
+-moz-transform: skew($x+$deg, $y+$deg);
+-o-transform: skew($x+$deg, $y+$deg);
+transform: skew($x+$deg, $y+$deg);}
+//
+// Skew X
+@mixin trf_swx($x) {
+-ms-transform: skewX($x+$deg);
+-webkit-transform: skewX($x+$deg);
+-moz-transform: skewX($x+$deg);
+-o-transform: skewX($x+$deg);
+transform: skewX($x+$deg);}
+//
+// Skew Y
+@mixin trf_swy($y) {
+-ms-transform: skewY($y+$deg);
+-webkit-transform: skewY($y+$deg);
+-moz-transform: skewY($y+$deg);
+-o-transform: skewY($y+$deg);
+transform: skewY($y+$deg);}
+//
+// Scale
+@mixin trf_sl($x, $y) {
+-ms-transform: scale($x, $y);
+-webkit-transform: scale($x, $y);
+-moz-transform: scale($x, $y);
+-o-transform: scale($x, $y);
+transform: scale($x, $y);}
+//
+// Scale X
+@mixin trf_slx($x) {
+-ms-transform: scaleX($x);
+-webkit-transform: scaleX($x);
+-moz-transform: scaleX($x);
+-o-transform: scaleX($x);
+transform: scaleX($x);}
+//
+// Scale Y
+@mixin trf_sly($y) {
+-ms-transform: scaleY($y);
+-webkit-transform: scaleY($y);
+-moz-transform: scaleY($y);
+-o-transform: scaleY($y);
+transform: scaleY($y);}
+//
+// Matrix
+@mixin trf_m($a, $b, $c, $d, $tx, $ty) {
+-ms-transform: matrix($a, $b, $c, $d, $tx, $ty);
+-webkit-transform: matrix($a, $b, $c, $d, $tx, $ty);
+-moz-transform: matrix($a, $b, $c, $d, $tx, $ty);
+-o-transform: matrix($a, $b, $c, $d, $tx, $ty);
+transform: matrix($a, $b, $c, $d, $tx, $ty);} 
+//
+// Animation
+// =========================================================================
+@mixin key($animation-name) {
+@-webkit-keyframes #{$animation-name} {@content;}
+@-moz-keyframes #{$animation-name} {@content;}
+@-ms-keyframes #{$animation-name} {@content;}
+@-o-keyframes #{$animation-name} {@content;}
+@keyframes #{$animation-name} {@content;}}
+//
+@mixin anima($n:none,$du:none,$t:none,$de:none,$i:none,$di:none,$f:none,$p:none) {
+$str:'';
+@if $n != none {$str: $str+'#{$n}';}
+@if $du != none {$str: $str+' #{$du}';}
+@if $t != none {$str: $str+' #{$t}';}
+@if $de != none {$str: $str+' #{$de}';}
+@if $i != none {$str: $str+' #{$i}';}
+@if $di != none {$str: $str+' #{$di}';}
+@if $f != none {$str: $str+' #{$f}';}
+@if $p != none {$str: $str+' #{$p}';}
+-webkit-animation: #{$str};
+-moz-animation: #{$str};
+-ms-animation: #{$str};
+-o-animation: #{$str};
+animation: #{$str};}
+//
+// The End :)
+// =========================================================================
+
+
+
+
+
+

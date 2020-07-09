@@ -1,0 +1,36 @@
+// Project Title:
+// Project URI:
+// Version:
+// Tags:
+// Description:
+// Author:
+// Author URI:
+
+/* ==========================================================================
+   Footer Rules
+   ========================================================================== */
+
+.page-footer {
+	padding: 20px;
+	background-color: #90a4ae;
+
+	&__center{
+		max-width: 1200px;
+		margin: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	&__copyright {
+		font-size: .9em;
+		color: $grey;
+	}
+
+	&__company-name {
+		font-size: 1em;
+		text-decoration: none;
+		color: $grey;
+	}
+
+}
