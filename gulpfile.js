@@ -1,34 +1,35 @@
 'use strict';
 
-// Project: Frontend Builder
-// Project URI: https://github.com/Xgraf/frontend-builder-html
+// Project: Gulp Starter (Pug version)
+// Project URI: https://github.com/GrafSoul/gulp-starter-pug.git
 // Version: 1.0
 // Tags: gulp, html, css, js, sass
-// Description: Frontend Builder - Project builder for web
+// Description: Gulp Starter - Project builder for web
 // Author: Dmitriy Zatulovskiy
-// Author URI: https://github.com/Xgraf , http://networkroom.ru
+// Author URI: https://github.com/GrafSoul , http://networkroom.ru
 
 // =========================================================================
 // Config
 // =========================================================================
 const config = {
-	develop: true,
-	zipname: 'project-dist.zip',
-	input: {
-		js: './source/js/**/*.js',
-		sass: './source/sass/main.scss',
-		sassfiles: './source/sass/**/*.scss',
-		pug: './source/pug/index.pug',
-		pugfiles: './source/pug/**/*.pug',
-		fonts: './source/fonts/**/*.*',
-		images: './source/images/**/*.*',
-		pngSprite: './source/images/for_png_sprite/*.*',
-		svgSprite: './source/images/for_svg_sprite/',
-		sassPngSprite: './source/sass/base',
-	},
-	output: {
-		path: './public'
-	}
+    develop: true,
+    zipname: 'project-dist.zip',
+    input: {
+        js: './source/js/**/*.js',
+        sass: './source/sass/main.scss',
+        sassfiles: './source/sass/**/*.scss',
+        pug: './source/pug/index.pug',
+        pugfiles: './source/pug/**/*.pug',
+        fonts: './source/fonts/**/*.*',
+        video: './source/video/**/*.*',
+        images: './source/images/**/*.*',
+        pngSprite: './source/images/for_png_sprite/*.*',
+        svgSprite: './source/images/for_svg_sprite/',
+        sassPngSprite: './source/sass/base',
+    },
+    output: {
+        path: './public',
+    },
 };
 
 // =========================================================================
@@ -42,8 +43,8 @@ const browserSync = require('browser-sync').create();
 // Errors
 // =========================================================================
 const errors = (err) => {
-	console.log(err);
-	this.emit('end');
+    console.log(err);
+    this.emit('end');
 };
 
 // =========================================================================
@@ -52,49 +53,95 @@ const errors = (err) => {
 
 // Pug
 // =========================================================================
-gulp.task('pug', require('./tasks/pug')(gulp, plugins, config, browserSync, errors));
+const pug = require('./tasks/pug')(gulp, plugins, config, browserSync, errors);
 
 // Fonts
 // =========================================================================
-gulp.task('fonts', require('./tasks/fonts')(gulp, plugins, config, browserSync, errors));
+const fonts = require('./tasks/fonts')(
+    gulp,
+    plugins,
+    config,
+    browserSync,
+    errors,
+);
 
 // JS
 // =========================================================================
-gulp.task('js', require('./tasks/js')(gulp, plugins, config, browserSync, errors));
+const js = require('./tasks/js')(gulp, plugins, config, browserSync, errors);
 
 // SASS
 // =========================================================================
-gulp.task('sass', require('./tasks/sass')(gulp, plugins, config, browserSync, errors));
+const sass = require('./tasks/sass')(
+    gulp,
+    plugins,
+    config,
+    browserSync,
+    errors,
+);
 
 // Images - Minimizing
 // =========================================================================
-gulp.task('imagemin', require('./tasks/imagemin')(gulp, plugins, config, browserSync, errors));
+const imageMin = require('./tasks/imagemin')(
+    gulp,
+    plugins,
+    config,
+    browserSync,
+    errors,
+);
 
 // Images - PNG Sprite
 // =========================================================================
-gulp.task('pngsprite', require('./tasks/pngsprite')(gulp, plugins, config));
+const pngSprite = require('./tasks/pngsprite')(gulp, plugins, config);
 
 // Images - SVG Sprite
 // =========================================================================
-gulp.task('svgsprite', require('./tasks/svgsprite')(gulp, plugins, config));
+const svgSprite = require('./tasks/svgsprite')(gulp, plugins, config);
+
+// Video
+// =========================================================================
+const video = require('./tasks/video')(
+    gulp,
+    plugins,
+    config,
+    browserSync,
+    errors,
+);
 
 // Zip public
 // =========================================================================
-gulp.task('zip', require('./tasks/zip')(gulp, plugins, config, errors));
+const zip = require('./tasks/zip')(gulp, plugins, config, errors);
 
 // Server
 // =========================================================================
-gulp.task('server', require('./tasks/server')(gulp, browserSync, config));
+const server = require('./tasks/server')(browserSync, config);
+
+// Watch
+// =========================================================================
+function watch_files() {
+    gulp.watch(config.input.sassfiles, gulp.series(sass));
+    gulp.watch(config.input.pugfiles, gulp.series(pug));
+    gulp.watch(config.input.js, gulp.series(js));
+    gulp.watch(config.input.fonts, gulp.series(fonts));
+    gulp.watch(config.input.images, gulp.series(imageMin));
+    gulp.watch(config.input.pngSprite, gulp.series(pngSprite));
+    gulp.watch(config.input.svgSprite + '*.*', gulp.series(svgSprite));
+    gulp.watch(config.input.video, gulp.series(video));
+}
 
 // Watch default
 // =========================================================================
-gulp.task('default', [
-	'pug',
-	'fonts',
-	'imagemin',
-	'pngsprite',
-	'svgsprite',
-	'sass',
-	'js',
-	'server'
-]);
+gulp.task(
+    'default',
+    gulp.parallel(
+        pug,
+        fonts,
+        imageMin,
+        pngSprite,
+        svgSprite,
+        video,
+        sass,
+        js,
+        server,
+        watch_files,
+    ),
+);
